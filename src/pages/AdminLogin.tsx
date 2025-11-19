@@ -14,14 +14,14 @@ export function AdminLogin() {
     setError('');
     setLoading(true);
 
-    // Hardcoded admin credentials
-    if (email === 'admin@admin.com' && password === '12345678') {
-      localStorage.setItem('adminToken', 'admin_' + Date.now());
-      localStorage.setItem('adminEmail', email);
-      navigate('/admin/dashboard');
-    } else {
-      setError('Invalid admin credentials');
-    }
+  // Hardcoded admin credentials
+if (email === 'oskar@kingadmin.com' && password === 'HelloPlease10!') {
+  localStorage.setItem('adminToken', 'admin_' + Date.now());
+  localStorage.setItem('adminEmail', email);
+  navigate('/admin/dashboard');
+} else {
+  setError('Invalid admin credentials');
+}  
     setLoading(false);
   };
 
