@@ -64,7 +64,7 @@ if (email === 'oskar@kingadmin.com' && password === 'HelloPlease10!') {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 bg-slate-900/50 border border-violet-500/20 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors"
-                placeholder="admin@admin.com"
+                placeholder="oskar@kingadmin.com"
                 required
               />
             </div>
