@@ -199,7 +199,7 @@ export function Dashboard() {
           
           // Only show trial system for new users (signed up after launch date)
           if (userSignupDate >= TRIAL_LAUNCH_DATE) {
-            const TRIAL_DAYS = 14; // Change to 0 for testing, 14 for production
+            const TRIAL_DAYS = 7; // Change to 0 for testing, 7 for production
             const trialDaysLeft = Math.max(0, TRIAL_DAYS - daysSinceSignup);
             
             console.log('Days since signup:', daysSinceSignup);

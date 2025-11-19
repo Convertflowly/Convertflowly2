@@ -151,10 +151,10 @@ function App() {
               </div>
 
               <div className="mb-6 space-y-3">
-                {/* Always show 14-day free trial first */}
+                {/* Always show 7-day free trial first */}
                 <div className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-[#FFB800] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300 text-sm">14-day free trial</span>
+                  <span className="text-gray-300 text-sm">7-day free trial</span>
                 </div>
                 
                 {product.features && Array.isArray(product.features) && product.features.length > 0 ? (
