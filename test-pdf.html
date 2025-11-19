@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Test</title>
+</head>
+<body>
+    <h1>PDF Generation Test</h1>
+    <button id="testBtn">Generate Test PDF</button>
+    <div id="status"></div>
+
+    <script type="module">
+        import { PDFDocument, rgb } from 'https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/+esm';
+
+        document.getElementById('testBtn').addEventListener('click', async () => {
+            const status = document.getElementById('status');
+            status.textContent = 'Generating PDF...';
+            
+            try {
+                // Test simple PDF generation
+                const pdfDoc = await PDFDocument.create();
+                const page = pdfDoc.addPage();
+                const { width, height } = page.getSize();
+                
+                const boldFont = await pdfDoc.embedFont('Helvetica-Bold');
+                
+                page.drawText('Test PDF Document', {
+                    x: 50,
+                    y: height - 50,
+                    size: 24,
+                    font: boldFont,
+                    color: rgb(0, 0, 0),
+                });
+                
+                const pdfBytes = await pdfDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                
+                // Download it
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'test.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                status.textContent = 'PDF generated successfully! Check your downloads.';
+                status.style.color = 'green';
+            } catch (error) {
+                status.textContent = 'Error: ' + error.message;
+                status.style.color = 'red';
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>
