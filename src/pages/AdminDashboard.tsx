@@ -31,7 +31,7 @@ export function AdminDashboard() {
       setAdminEmail(email);
       setIsAdmin(true);
     } else if (email && token) {
-      alert('Access denied. Only admin@admin.com can access this page.');
+      alert('Access denied. Only oskar@kingadmin.com can access this page.');
       navigate('/admin/login');
     } else {
       navigate('/admin/login');
