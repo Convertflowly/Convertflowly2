@@ -23,11 +23,11 @@ export function AdminDashboard() {
   const [editingUser, setEditingUser] = useState<any | null>(null);
   const [editUserForm, setEditUserForm] = useState({ email: '', full_name: '', subscription_product_id: '' });
 
-  // Check if user is admin (hardcoded for admin@admin.com)
+  // Check if user is admin (hardcoded for oskar@kingadmin.com)
   useEffect(() => {
     const email = localStorage.getItem('adminEmail');
     const token = localStorage.getItem('adminToken');
-    if (email === 'admin@admin.com' && token) {
+    if (email === 'oskar@kingadmin.com' && token) {
       setAdminEmail(email);
       setIsAdmin(true);
     } else if (email && token) {
